@@ -1,0 +1,21 @@
+catalog {
+    background-color: white;
+    font-size: 20pt;
+}
+cd {
+     display: block; 
+    text-align: left;
+}
+title {
+     display: block; 
+    color: red;
+    font-family: verdana;
+}
+artist, country  {
+     display: block; 
+    color: blue;    
+}
+company, price, year {
+     display: block; 
+    color: black;
+}

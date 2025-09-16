@@ -1,0 +1,41 @@
+MEMO
+{
+background-color: grey;
+}
+TO
+{
+display: inline;
+font-weight: bold;
+text-align: left;
+background-color: yellow;
+color: red;
+white-space: nowrap;
+}
+PERSON
+{
+display: inline;
+font-weight: bold;
+text-align: left;
+background-color: blue;
+white-space: nowrap;
+color: white;
+}
+FROM
+{
+display: block;
+font-weight: bold;
+text-align: left;
+color: green;
+
+}
+CONTENTS
+{
+display: block;
+color: blue;
+font-weight: bold;
+font-style: italic;
+text-align: left;
+margin-left: 15%;
+margin-top: 20px;
+}
+
