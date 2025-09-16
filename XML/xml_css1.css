@@ -1,7 +1,7 @@
 xmlCssDemo{
     background-color: lightblue;
 }
-title, p{
+title, paragraph{
     display: block;
 }
 
@@ -10,7 +10,7 @@ title{
     text-align: center;
     color: white;
 }
-p{
+paragraph{
 margin-top: 30px;
 font-size: 20px;
 }
