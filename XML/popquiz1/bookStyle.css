@@ -1,0 +1,60 @@
+heading{
+    margin-left: 15%;
+    margin-right: 15% ;
+    margin-bottom: 30pt;
+    display: block;
+    font-size: 40px;
+    background-color: cyan;
+    color: purple;
+    text-align: center;
+    border: 5px dotted;
+    border-color: blue;
+}
+books{
+    display: block;
+    background-color: lightgray;
+}
+title{
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 50pt;
+    display: block;
+    background-color: yellow;
+    color: green;
+    text-align: center;
+    font-size: 25px;
+}
+author, publisher, edition, price{
+    display: block;
+    margin-top: -23px ;
+}
+
+author, publisher{
+    float: left;
+    display: block;
+}
+author{
+    background-color: blue;
+    color: red;
+    margin-left: 10pt;
+}
+publisher{
+    background-color: orange;
+    color: green;
+    margin-left: 5pt;
+}
+edition, price{
+    display: block;
+    float: right;
+}
+price{
+    background-color: white;
+    color: black;
+    margin-right: 5pt;
+}
+
+edition{
+    background-color: orange;
+    color: blue;
+    margin-right: 10pt;
+}

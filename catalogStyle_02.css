@@ -1,0 +1,30 @@
+catalog {
+    width: 70%;
+    background-color: lightblue;
+}
+
+cd {
+    background-color: white;
+    display: block;
+    text-align: left;
+    margin-bottom: 30pt;
+    margin-left: 10pt;
+    color: white;
+}
+
+title {
+    display: block;
+    color: red;
+    font-family: verdana;
+    font-size: 20px;
+}
+artist, country{
+    display: block;
+    color: blue;
+}
+
+company, price, year{
+    display: block;
+    color: black;
+}
+
