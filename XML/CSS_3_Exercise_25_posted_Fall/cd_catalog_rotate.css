@@ -11,7 +11,7 @@ cd {
     display: block;
     margin-bottom: 30pt;
     margin-left: 0;
-    font-family:Arial, "Times New Roman", Times, serif;
+    font-family:Arial, "Times New Roman", Times, serif;
 }
 cd {transform: rotate(20deg);}
 
@@ -24,6 +24,7 @@ artist {
     display: block;
     color: #0000ff;
     font-size: 20pt;
+
 }
 country, price, year, company {
     display: block;

@@ -1,7 +1,7 @@
-<?xmlversion="1.0" encoding="euc-kr" standalone="yes"?>
-<?xml-stylesheettype="text/css" href="xml_translate.css"?>
-<body>
-<h3>Translate property</h3>
-<div></div>
-<p>Moves red box 100px right, and 20px down.</p>
-<p>Try to change y-value to -30px and see what happens.</p>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type = "text/css" href = "xml.translate.css"?>
+<main>
+    <heads>XML Translate property</heads>
+    <block></block>
+    <line1>Try to change y-value.</line1>
+</main>

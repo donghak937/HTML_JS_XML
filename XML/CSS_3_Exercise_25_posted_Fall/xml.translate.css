@@ -1,12 +1,23 @@
-div {
-  height: 90px;
-  width: 40px;
-  background-color: red;
-  translate: 100px -40px;
+main {
+    margin-left: 20px;
 }
-h3{
-  background-color: slateblue;
+
+block {
+    display: block;
+    height: 90px;
+    width: 40px;
+    background-color: rgb(248, 58, 58);
+    translate: 70px 30px;
+    }
+heads{
+    width: 40%;
+    font-size: 30px;
+    display: block;
+    background-color: rgb(103, 82, 238);
 }
-p{
-  color: blue;
+line1 {
+    margin-top: 50px;
+    display: block;
+    color: rgb(23, 23, 205);
+    font-weight: bold;
 }

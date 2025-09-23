@@ -11,7 +11,7 @@ cd {
     display: block;
     margin-bottom: 30pt;
     margin-left: 0;
-    font-family:Arial, "Times New Roman", Times, serif;
+    font-family:Arial, "Times New Roman", Times, serif;
     }
 
 title {
@@ -35,11 +35,11 @@ artist {
 /* Safari 4.0 - 8.0 */
 @-webkit-keyframes mymove {
     from {left: 0px;}
-    to {left: 400px;}
+    to {left: 300px;}
 }
 @keyframes mymove {
     from {left: 0px;}
-    to {left: 400px;}
+    to {left: 300px;}
 }
 
 
