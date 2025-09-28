@@ -1,0 +1,111 @@
+catalog {
+    background-color: white;
+    width: 100%;
+}
+
+cd {
+    position: relative;
+    height: 200px;
+    width: 500px;
+    display: block;
+    margin-bottom: 100pt;
+    margin-left: 0;
+    font-family: Arial, "Times New Roman", Times, serif;
+}
+
+
+
+title {
+    display: block;
+    color: red;
+    font-size: 20pt;
+    transition: width 10s, height 10s;
+}
+title:hover {
+    width: 200pt;
+    height: 500pt;
+    background-color: #22c55e;
+    color: #0b1020;    
+}
+
+artist {
+    display: block;
+    color: #0000ff;
+    font-size: 20pt;
+}
+
+company {
+    width: 100px;
+    height: 50px;
+    border-style: dashed;
+    background: yellow;
+    display: block;
+    color: #000000;
+    margin-left: 20pt;
+
+    -webkit-transition: width 2s;
+    /* For Safari 3.1 to 6.0 */
+
+    transition: width 2s;
+}
+
+company:hover {
+    width: 300px;
+}
+
+year {
+    width: 100px;
+    height: 50px;
+    display: block;
+    background: cyan;
+    margin-left: 20pt;
+    -webkit-transition: width 2s, height 4s;
+    /* Safari */
+    transition: width 2s, height 4s;
+}
+
+year:hover {
+    width: 200px;
+    height: 100px;
+}
+
+price {
+    width: 100px;
+    height: 50px;
+    background: gray;
+    display: block;
+    color: #000000;
+    margin-left: 20pt;
+    -webkit-transition: width 3s;
+    /* Safari */
+    -webkit-transition-delay: 1s;
+    /* Safari */
+    transition: width 3s;
+    transition-delay: 1s;
+}
+
+price:hover {
+    width: 300px;
+}
+
+country {
+    width: 100px;
+    height: 50px;
+    display: block;
+    color: yellow;
+    margin-left: 20pt;
+    background: purple;
+
+    -webkit-transition: width 2s, height 2s, -webkit-transform 2s;
+    /* Safari */
+    
+    transition: width 2s, height 2s, transform 2s;
+}
+
+country:hover {
+    width: 200px;
+    height: 100px;
+    -webkit-transform: rotate(360deg);
+    /* Safari */
+    transform: rotate(360deg);
+}

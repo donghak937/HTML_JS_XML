@@ -21,6 +21,7 @@ title {
     display: block;
     color: blue;
     font-size: 20pt;
+    scale: (0.5, 0.5);
 
 }
 
@@ -35,6 +36,7 @@ country, price, year, company {
     display: block;
     color: #000000;
     margin-left: 20pt;
+    margin-bottom: 10px;
     
     -ms-transform: scale(2, 3); /* IE 9 */
     -webkit-transform: scale(2, 3); /* Safari */
