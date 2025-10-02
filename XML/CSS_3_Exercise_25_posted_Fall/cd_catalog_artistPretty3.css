@@ -25,9 +25,9 @@ artist {
         font-size: 20pt;
     background: red;
     position: relative;
-    -webkit-animation: myfirst 5s 2; /* Safari 4.0 - 8.0 */
-
+    /**/-webkit-animation: myfirst 5s 2; /* Safari 4.0 - 8.0 */
     animation: myfirst 5s 2;
+    animation-direction: alternate;
 
 }
 /* Safari 4.0 - 8.0 */

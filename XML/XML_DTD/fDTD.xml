@@ -10,5 +10,13 @@
     <to>Tove</to>
     <from>Jani</from>
     <heading>Reminder</heading>
-    <body>Don't forget me this weekend</body>
+    <body> <![CDATA[<a> <a>]]>Don't forget me this weekend</body>
 </note>
+
+<!--
+• &lt; standing for < 
+• &gt; standing for > 
+• &amp; standing for & 
+• &apos; standing for ‘ apostrophe 
+• &quot; standing for” quotation mark
+-->
