@@ -1,0 +1,10 @@
+<?xml version = "1.0"?>
+<!DOCTYPE myMessage [
+   <!ELEMENT myMessage ( message )>
+   <!ELEMENT message ( #PCDATA )>
+   <!ATTLIST message id NMTOKEN  #REQUIRED> ]>
+<myMessage>
+   <message id = "445 ABC">
+      Welcome to XML!
+   </message>
+</myMessage>

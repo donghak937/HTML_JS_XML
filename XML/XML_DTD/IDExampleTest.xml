@@ -1,0 +1,23 @@
+<?xml version= "1.0"?><!--IDExample.xml   -->
+<!DOCTYPE bookstore [
+    <!ELEMENT bookstore ( shipping+, book+ )>
+    <!ELEMENT shipping ( duration)>
+    <!ATTLIST shipping shipID ID #REQUIRED>
+    <!ELEMENT book ( #PCDATA )>
+    <!ATTLIST book shippedBy IDREFS #REQUIRED>
+    <!ELEMENT duration ( #PCDATA )>
+]>
+<bookstore>
+    <shipping shipID= "s12">
+    <duration>2 to4 days</duration>
+    </shipping>
+    <shipping shipID= "s25">
+    <duration>1 day</duration>
+    </shipping>
+    <book shippedBy= "s25">JavaHowtoProgram3rd edition.
+    </book>
+    <book shippedBy= "s25">C HowtoProgram3rd edition.
+    </book>
+    <book shippedBy= "s12 s25">C++ HowtoProgram3rd edition.
+    </book>
+</bookstore>

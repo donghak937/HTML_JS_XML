@@ -1,0 +1,12 @@
+<?xml version = "1.0"?>
+<!DOCTYPE myMessage [
+   <!ELEMENT myMessage ( message )>
+   <!ELEMENT message ( #PCDATA )>
+   <!ATTLIST message id NMTOKENS #REQUIRED>
+   <!ATTLIST message select (yes | no) "no" >
+]>
+<myMessage>
+   <message id = "445  abc" select = "ok" >
+      Welcome to XML!
+   </message>
+</myMessage>
