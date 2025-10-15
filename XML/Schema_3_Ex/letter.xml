@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<letter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="letterModify.xsd">
+  a
+</letter>
+
+<!-- 줄바꿈 때문에 안되는 거임-->
