@@ -12,6 +12,7 @@
                 text-align: center;
                 background-color:Yellow;
                 border:2px solid black;
+                text-shadow: 3px 3px 1px red;
             }
 
             p {
@@ -19,6 +20,30 @@
                 -webkit-animation: mymove 5s infinite; /* Safari 4.0 - 8.0 */ 
                 animation: mymove 5s infinite;
             } 
+
+            h3 { 
+                color: blue;
+                font-weight:bold;
+                text-align: center;
+                background-color:yellow;
+                text-shadow: 3px 3px 1px red;
+            } 
+
+            h2 { 
+                color: black;
+                font-weight:bold;
+                text-align: center;
+                background-color:gray;
+                transform: skewX(20deg);
+            }
+
+            h1 { 
+                color: red;
+                font-weight:bold;
+                text-align: center;
+                background-color:green;
+                transform: skewY(20deg);
+            }
             @keyframes mymove { 
                 0% {left: 0px;} 
                 50% {left: 200px;} 
@@ -28,5 +53,8 @@
     </head>
     <body>
         <p>Hello World!</p>
+        <h1>text-shadow</h1>
+        <h2>text-shadow</h2>
+        <h3>text-shadow</h3>
     </body>
 </html>
