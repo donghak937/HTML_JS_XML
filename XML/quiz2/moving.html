@@ -44,10 +44,33 @@
                 background-color:green;
                 transform: skewY(20deg);
             }
+
+            .aa{
+                color: blue;
+                font-weight:bold;
+                text-align: center;
+                background-color:yellow;
+                transition: width 2s, height 2s, transform 2s; 
+            }
+            .aa:hover { 
+                transform: rotate(180deg);
+            }       
             @keyframes mymove { 
                 0% {left: 0px;} 
                 50% {left: 200px;} 
                 100% {left: 0px;}
+            }
+
+            a { 
+                width: 200px;
+                height: 50px;
+                background: cyan;
+                border: 1px solid black;
+                display: block;
+                } 
+            a {
+                transform: rotate(20deg); 
+                transform-origin: 100 100; 
             }
         </style>
     </head>
@@ -56,5 +79,9 @@
         <h1>text-shadow</h1>
         <h2>text-shadow</h2>
         <h3>text-shadow</h3>
+
+        <div class="aa">hover-rotate</div>
+
+        <a href="aa">Email</a>
     </body>
 </html>
