@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>document</title>
+        <style>
+
+            body { 
+                width: 500px;
+                height: 300px;
+                background-color: white;
+                display: block;
+            }
+            .rotate {
+                width: 100px;
+                height: 50px;
+                display: block;
+                color: yellow;
+                margin-left: 20pt;
+                background: purple; /* Safari */ -webkit-transition: width 2s, height 2s, -webkit-transform 2s;
+                transition: width 2s, height 2s, transform 2s;
+            }
+            .rotate:hover { width: 200px;
+                height: 100px;
+                -webkit-transform: rotate(180deg); /* Safari */
+                transform: rotate(180deg);
+            }
+
+            .extend {
+                width: 100px;
+                height: 50px;
+                background: yellow;
+                display: block;
+                color: #000000;
+                margin-left: 20pt;
+                -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
+                transition: width 2s;
+            }
+            .extend:hover { 
+                width: 300px;
+            }
+
+            .delayExtend {
+                width: 100px;
+                height: 50px;
+                background: gray;
+                display: block;
+                color: #000000;
+                margin-left: 20pt;
+                -webkit-transition: width 3s; /* Safari */ -webkit-transition-delay: 1s; /* Safari */
+                transition: width 3s;
+                transition-delay: 1s;
+            }
+            .delayExtend:hover { 
+                width: 300px;
+            }
+
+            .extendWithHeight {
+                width: 100px;
+                height: 50px;
+                display: block;
+                background: cyan;
+                margin-left: 20pt;
+                -webkit-transition: width 2s, height 4s; /* Safari */
+                transition: width 2s, height 4s;
+            }
+            .extendWithHeight:hover { 
+                width: 200px;
+                height: 100px;  
+            }
+        </style>
+    </head>
+    <body>
+        <p>Hello World!</p>
+
+        <div class="rotate">hover-rotate</div>
+        <div class="extend">hover-extend</div>
+        <div class="delayExtend">hover-delayExtend</div>
+        <div class="extendWithHeight">hover-extendWithHeight</div>
+    </body>
+</html>
