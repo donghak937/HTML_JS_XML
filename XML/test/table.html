@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>HTML Table 기본 예시 (주석 빽빽 ver.)</title>
+    <style>
+      /* ================================
+       전역(페이지 공통) 최소 스타일
+       - 보기 좋은 기본 글꼴/여백/줄간격
+       - 디자인 과하지 않게 아주 기본만
+       ================================ */
+      body {
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", sans-serif;
+        margin: 24px;
+        /* 페이지 좌우 여백 */
+        line-height: 1.5;
+        /* 줄 간격 */
+      }
+
+      /* 섹션 간 간격만 간단히 */
+      section {
+        margin: 24px 0;
+      }
+
+      /* ================================
+       테이블 공통 스타일
+       - border-collapse: 테두리 겹침 제거
+       - caption: 표 제목은 위쪽 정렬
+       - th/td: 기본 테두리, 패딩
+       - thead/tfoot: 옅은 배경으로 구분
+       ================================ */
+      .tbl {
+        width: 100%;
+        /* 가능하면 가로 100% */
+        border-collapse: collapse;
+        /* 셀 사이 테두리 겹침 제거 (한 줄로 보임) */
+      }
+
+      .tbl caption {
+        text-align: left;
+        /* 캡션은 표 위쪽 왼쪽 정렬 */
+        font-weight: 600;
+        margin-bottom: 8px;
+        /* 캡션과 표 사이 간격 */
+      }
+
+      .tbl th,
+      .tbl td {
+        border: 1px solid #ddd;
+        /* 아주 연한 테두리 */
+        padding: 8px 10px;
+        /* 셀 내부 여백 */
+        vertical-align: top;
+        /* 여러 줄일 때 위쪽 정렬(가독성↑) */
+      }
+
+      .tbl thead th {
+        background: #f5f5f5;
+        /* 헤더 줄만 옅은 배경 */
+        text-align: left;
+        /* 텍스트는 왼쪽 정렬(숫자는 별도 클래스 사용) */
+      }
+
+      .tbl tfoot td {
+        background: #fafafa;
+        /* 푸터(합계 등)도 옅은 배경 */
+        font-weight: 600;
+        /* 푸터는 약간 굵게 */
+      }
+
+      /* ================================
+       숫자열 공통 정렬
+       - 숫자(금액/개수)는 오른쪽 정렬이 읽기 쉬움
+       - tabular-nums: 자리수 균등 폭(가독성↑)
+       ================================ */
+      .num {
+        text-align: right;
+        /* 오른쪽 정렬 */
+        font-variant-numeric: tabular-nums;
+        /* 숫자 균등폭 */
+      }
+
+      /* ================================
+       (선택) 줄무늬 테이블
+       - 필요 없으면 아래 한 줄만 삭제하면 됨
+       - 짝수 행 배경을 아주 옅게
+       ================================ */
+      .zebra tbody tr:nth-child(even) {
+        background: #fbfbfd;
+      }
+
+      /* ================================
+       (선택) 가로 스크롤 래퍼
+       - 열이 많아 화면을 넘칠 때 스크롤 허용
+       - 테이블 자체는 그대로, 부모 div에만 적용
+       ================================ */
+      .scroll {
+        overflow-x: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>HTML 테이블 예시 (아주 간단 CSS + 상세 주석)</h1>
+    <!--
+    아래 예시들은 각각의 “기능”을 분리해서 보여줍니다.
+    필요없는 섹션은 삭제해도 되고, 원하는 부분만 복사해서 써도 됩니다.
+  -->
+    <!-- =========================================================
+       1) 가장 기본형 테이블: thead / tbody / tfoot 구조
+       - thead : 열 제목(헤더)
+       - tbody : 실제 데이터 행
+       - tfoot : 합계/요약 등 하단 고정 영역
+       ========================================================= -->
+    <section>
+      <table class="tbl">
+        <caption>1) 기본 테이블</caption>
+        <thead>
+          <tr>
+            <!-- th: header cell. 화면 읽기(스크린리더)에 “열 제목” 의미 제공 -->
+            <th>품목</th>
+            <th>수량</th>
+            <th>단가(원)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>연필</td>
+            <td class="num">3</td>
+            <!-- 숫자는 .num 클래스로 오른쪽 정렬 -->
+            <td class="num">500</td>
+          </tr>
+          <tr>
+            <td>지우개</td>
+            <td class="num">2</td>
+            <td class="num">700</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <!-- tfoot은 합계/요약 등을 표시하기 좋음 -->
+            <td>합계</td>
+            <td class="num">5</td>
+            <td class="num">2,900</td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+    <!-- =========================================================
+       2) 줄무늬(지브라) 테이블
+       - 가독성을 위해 짝수 행 배경을 살짝 다르게
+       - CSS 한 줄(.zebra ...)만으로 동작
+       ========================================================= -->
+    <section>
+      <table class="tbl zebra">
+        <caption>2) 줄무늬(지브라) 테이블</caption>
+        <thead>
+          <tr>
+            <th>이름</th>
+            <th>학과</th>
+            <th>학년</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>김하늘</td>
+            <td>컴퓨터공학</td>
+            <td class="num">2</td>
+          </tr>
+          <tr>
+            <td>이서준</td>
+            <td>전자공학</td>
+            <td class="num">3</td>
+          </tr>
+          <tr>
+            <td>박지민</td>
+            <td>경영학</td>
+            <td class="num">1</td>
+          </tr>
+          <tr>
+            <td>최유진</td>
+            <td>디자인</td>
+            <td class="num">4</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- 메모: 줄무늬가 필요 없으면 .zebra 규칙을 CSS에서 삭제하면 끝 -->
+    </section>
+    <!-- =========================================================
+       3) colspan(열 합치기) + rowspan(행 합치기 기본 이해)
+       - 여기서는 “colspan”만 사용(헤더를 2단으로)
+       - rowspan은 아래 섹션(4번)에서 별도 데모
+       ========================================================= -->
+    <section>
+      <table class="tbl">
+        <caption>3) colspan(열 합치기)</caption>
+        <thead>
+          <tr>
+            <!-- rowspan="2" : 이 헤더 셀은 아래 행까지 세로로 2칸 차지 -->
+            <th rowspan="2">과목</th>
+            <!-- colspan="2" : 가로로 2칸 합치기 (중간/기말 각각 점수+등급) -->
+            <th colspan="2">중간고사</th>
+            <th colspan="2">기말고사</th>
+          </tr>
+          <tr>
+            <!-- 위의 colspan 그룹에 대응되는 구체 헤더들 -->
+            <th>점수</th>
+            <th>등급</th>
+            <th>점수</th>
+            <th>등급</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>수학</td>
+            <td class="num">88</td>
+            <td>B+</td>
+            <td class="num">92</td>
+            <td>A</td>
+          </tr>
+          <tr>
+            <td>영어</td>
+            <td class="num">75</td>
+            <td>C+</td>
+            <td class="num">81</td>
+            <td>B-</td>
+          </tr>
+          <tr>
+            <td>물리</td>
+            <td class="num">90</td>
+            <td>A-</td>
+            <td class="num">87</td>
+            <td>B+</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <!-- =========================================================
+       4) rowspan(행 합치기)
+       - 같은 요일이 연속될 때 "요일" 셀을 세로로 합쳐 깔끔하게 표시
+       - 같은 값이 여러 행에 반복될 때 유용
+       ========================================================= -->
+    <section>
+      <table class="tbl">
+        <caption>4) rowspan(행 합치기)</caption>
+        <thead>
+          <tr>
+            <th>요일</th>
+            <th>시간</th>
+            <th>과목</th>
+            <th>강의실</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <!-- "월"이 두 행을 덮음 -->
+            <td rowspan="2">월</td>
+            <td>09:00</td>
+            <td>자료구조</td>
+            <td>A-203</td>
+          </tr>
+          <tr>
+            <!-- 위에서 rowspan으로 덮었기 때문에 이 줄엔 요일을 쓰지 않음 -->
+            <td>11:00</td>
+            <td>웹프로그래밍</td>
+            <td>B-105</td>
+          </tr>
+          <tr>
+            <td rowspan="2">수</td>
+            <td>10:00</td>
+            <td>통계학</td>
+            <td>C-301</td>
+          </tr>
+          <tr>
+            <td>13:00</td>
+            <td>영작문</td>
+            <td>D-210</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <!-- =========================================================
+       5) colgroup / col : 열 너비 간단 제어
+       - colgroup 안의 col에 인라인 스타일로 width 지정
+       - CSS 클래스/스타일로도 가능하나, 예시는 이해를 위해 인라인 사용
+       ========================================================= -->
+    <section>
+      <table class="tbl">
+        <caption>5) colgroup으로 열 너비 지정</caption>
+        <colgroup>
+          <!-- 3개 열에 대해 너비 비율 제공 (합계 100%가 아니어도 브라우저가 배분) -->
+          <col style="width:30%">
+          <col style="width:20%">
+          <col style="width:50%">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>항목</th>
+            <th>상태</th>
+            <th>비고</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>서버</td>
+            <td>정상</td>
+            <td>주 1회 백업</td>
+          </tr>
+          <tr>
+            <td>데이터베이스</td>
+            <td>정상</td>
+            <td>읽기 전용 복제본 운영</td>
+          </tr>
+          <tr>
+            <td>스토리지</td>
+            <td>주의</td>
+            <td>용량 85% 사용 중</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <!-- =========================================================
+       6) 숫자 정렬(오른쪽) 예시
+       - 금액/수치 컬럼에 .num 클래스 적용
+       - 자리수 균등폭(tabular-nums)로 세로 정렬이 단정함
+       ========================================================= -->
+    <section>
+      <table class="tbl">
+        <caption>6) 숫자 오른쪽 정렬</caption>
+        <thead>
+          <tr>
+            <th>항목</th>
+            <th class="num">1분기</th>
+            <th class="num">2분기</th>
+            <th class="num">합계</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>매출</td>
+            <td class="num">120,300</td>
+            <td class="num">98,100</td>
+            <td class="num">218,400</td>
+          </tr>
+          <tr>
+            <td>비용</td>
+            <td class="num">65,000</td>
+            <td class="num">72,500</td>
+            <td class="num">137,500</td>
+          </tr>
+          <tr>
+            <td>이익</td>
+            <td class="num">55,300</td>
+            <td class="num">25,600</td>
+            <td class="num">80,900</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <!-- =========================================================
+       7) 가로로 넓은 표(반응형)
+       - 열이 많아 작은 화면에서 넘칠 때 .scroll 래퍼로 가로 스크롤 허용
+       - 테이블 자체 코드는 그대로, 부모 div만 overflow-x:auto
+       ========================================================= -->
+    <section>
+      <!-- 스크롤은 부모 div가 담당 -->
+      <div class="scroll">
+        <table class="tbl">
+          <caption>7) 넓은 표(작은 화면에서 가로 스크롤)</caption>
+          <thead>
+            <tr>
+              <!-- 열을 일부러 많이 만들어 스크롤 상황 유도 -->
+              <th>월</th>
+              <th>화</th>
+              <th>수</th>
+              <th>목</th>
+              <th>금</th>
+              <th>토</th>
+              <th>일</th>
+              <th>비고1</th>
+              <th>비고2</th>
+              <th>비고3</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>출근</td>
+              <td>출근</td>
+              <td>재택</td>
+              <td>출근</td>
+              <td>출근</td>
+              <td>휴무</td>
+              <td>휴무</td>
+              <td>팀 미팅</td>
+              <td>리뷰</td>
+              <td>—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- 메모: 스크롤바는 화면 폭이 충분하면 보이지 않음. 창 너비를 줄여보세요. -->
+    </section>
+    <!--
+    ✅ 간단 정리
+    - thead/tbody/tfoot로 의미를 나누면 접근성과 유지보수가 좋아집니다.
+    - 숫자열은 .num 클래스로 오른쪽 정렬 + tabular-nums 권장.
+    - 행/열 합치기: rowspan, colspan.
+    - colgroup/col로 열 너비를 단순히 제어 가능.
+    - 열이 많아 넘치면 .scroll 래퍼로 해결.
+    - 디자인을 더하고 싶다면 색/굵기/여백을 조금씩 조절하세요. (기능은 그대로)
+  -->
+  </body>
+</html>

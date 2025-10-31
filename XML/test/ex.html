@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CSS 의사 클래스 초간단 10종</title>
+<style>
+  /* 보기 편한 최소 스타일 */
+  body { font-family: system-ui, sans-serif; line-height: 1.5; margin: 24px; }
+  section { border: 1px solid #ddd; border-radius: 10px; padding: 16px; margin: 16px 0; }
+  h2 { margin: 0 0 8px; font-size: 18px; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .btn, button { padding: 8px 12px; border: 1px solid #bbb; border-radius: 8px; background:#fff; cursor:pointer; }
+  input, textarea { padding: 8px 10px; border:1px solid #bbb; border-radius:8px; }
+  ul { padding-left: 16px; }
+  .box { padding:8px; border:1px dashed #bbb; border-radius:8px; }
+
+  /* 1) 링크 상태 :link / :visited / :hover */
+  .links a:link { color: #0ea5e9; }     /* 아직 방문 전 */
+  .links a:visited { color: #7c3aed; }  /* 방문 후 */
+  .links a:hover { text-decoration: underline; }
+
+  /* 2) 버튼 클릭 순간 :active */
+  .row .btn:active { transform: scale(0.98); }
+
+  /* 3) 입력 포커스 :focus (파란 테두리) */
+  .focus input:focus { outline: 2px solid #2563eb; }
+
+  /* 4) 키보드 포커스만 강조 :focus-visible */
+  .focus-visible button:focus { outline: none; }
+  .focus-visible button:focus-visible { outline: 3px solid #22c55e; }
+
+  /* 5) 리스트 첫 번째/짝수 :first-child / :nth-child(even) */
+  .list li:first-child { color: #ef4444; font-weight: 700; }
+  .list li:nth-child(even) { background: #f3f4f6; }
+
+  /* 6) 특정 것만 빼고 스타일 :not() */
+  .menu li:not(.danger) { color: #0f766e; }  /* .danger만 제외 */
+
+  /* 7) 여러 후보 한 번에 :is() */
+  .toolbar :is(a, button):hover { outline:1px dashed #aaa; }
+
+  /* 8) 체크박스 선택됨 :checked */
+  .agree input:checked + label { color:#16a34a; font-weight:700; }
+
+  /* 9) 필수/유효성 :required / :invalid / :valid */
+  .form input:required { border-left:4px solid #ef4444; }
+  .form input:invalid { border-color:#ef4444; }
+  .form input:valid { border-color:#22c55e; }
+
+  /* 10) URL 해시 대상 :target */
+  #here:target { background:#fffbeb; border-color:#f59e0b; }
+</style>
+</head>
+<body>
+
+<h1>CSS 의사 클래스 초간단 10종</h1>
+<p>각 섹션의 설명을 읽고 바로 마우스/키보드로 시험해봐!</p>
+
+<section class="links">
+  <h2>1) 링크 상태 :link / :visited / :hover</h2>
+  <p><a href="https://example.com" target="_blank" rel="noreferrer">외부 링크</a> ·
+     <a href="#here">이 페이지 내 해시 링크</a></p>
+</section>
+
+<section>
+  <h2>2) 버튼 클릭 순간 :active</h2>
+  <div class="row">
+    <button class="btn">눌러봐</button>
+    <button class="btn">나도</button>
+  </div>
+</section>
+
+<section class="focus">
+  <h2>3) 입력 포커스 :focus</h2>
+  <input placeholder="여기에 Tab 또는 클릭">
+</section>
+
+<section class="focus-visible">
+  <h2>4) 키보드 포커스만 표시 :focus-visible</h2>
+  <p>마우스로 클릭하면 테두리 없음, <b>Tab</b>으로 이동하면 초록 테두리!</p>
+  <button>버튼 A</button>
+  <button>버튼 B</button>
+</section>
+
+<section>
+  <h2>5) 리스트 위치 :first-child / :nth-child(even)</h2>
+  <ul class="list">
+    <li>1번째(빨간색)</li>
+    <li>2번째(짝수 배경)</li>
+    <li>3번째</li>
+    <li>4번째(짝수 배경)</li>
+  </ul>
+</section>
+
+<section>
+  <h2>6) 제외 선택 :not()</h2>
+  <ul class="menu">
+    <li>Home(적용)</li>
+    <li class="danger">Delete(제외)</li>
+    <li>About(적용)</li>
+  </ul>
+</section>
+
+<section>
+  <h2>7) 여러 후보 한 번에 :is()</h2>
+  <div class="toolbar">
+    <a href="#" class="btn">링크</a>
+    <button class="btn">버튼</button>
+  </div>
+  <p>마우스를 올리면 둘 다 점선 테두리.</p>
+</section>
+
+<section class="agree">
+  <h2>8) 체크박스 선택됨 :checked</h2>
+  <input type="checkbox" id="ck"><label for="ck"> 약관에 동의합니다</label>
+</section>
+
+<section class="form">
+  <h2>9) 필수/유효성 :required / :invalid / :valid</h2>
+  <p><input type="email" required placeholder="이메일 입력 (you@example.com)"></p>
+  <p class="box">입력 전엔 빨간 왼쪽 테두리(필수). 올바른 이메일이면 테두리가 초록으로 바뀜.</p>
+</section>
+
+<section>
+  <h2>10) URL 해시 대상 :target</h2>
+  <p><a class="btn" href="#here">아래 상자로 이동</a></p>
+  <div id="here" class="box">여기가 #here (이동하면 배경이 노랗게 변함)</div>
+</section>
+
+</body>
+</html>
