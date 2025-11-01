@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="classport" content="width=device-width, inital-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>입력한 숫자 목록</h3> <!--변하지 않는 <h3> 문구-->
+    <p id="allnum"></p> <!--id="allnim"으로 지정-->
+    <h3 id="bigletter"></h3> <!--id="bigletter"으로 지정-->
+</body>
+<script>
+    let nums = [] //nums를 배열로 지정
+    let big = 0; //big을 가장 큰 수를 저장하는 값으로 지정
+
+    while (true) { //true일때까지 무한 반복
+
+        let num =  window.prompt("숫자를 입력하세요. \n입력 종류 - end"); //num을 입력받는 prompt
+
+        if (num === "end") { //만약 num에 입력받은 prompt가 "end"라면
+            alert("입력을 종료하였습니다."); //"입력을 종료하였습니다." alert로 출력
+            break; //반복 중단
+        }
+        if(isNaN(num)){ //만약 num에 입력받은 prompt가 숫자가 아니라면
+            alert("입력 오류입니다. \n다시 입력하세요"); //"입력오류입니다. 다시입력하세요." alert로 출력
+            continue; //그후 반복
+        }
+        else { //둘 다 아니라면
+            nums.push(parseInt(num)) //nums 배열에 입력받은 num의 값을 집어넣기
+            document.getElementById("allnum").innerHTML = nums + ","//nums에 들어온 값과 ","를 id="allnum"에 출력
+            
+        }
+        
+    }
+    for(let i = 0; i < nums.length; i++){ //i를 nums.length 배열 중 가장 큰 수가 될때까지 더하기 반복
+        if((big <= nums[i])){ //만약 nums[i]가 big보다 크거나 같을 때
+            big = nums[i] // big을 num[i]로 지정
+            console.log("changed"); 
+        }
+        console.log(nums[i]);
+    }
+    document.getElementById("bigletter").innerHTML="가장 큰 수:" + big; // big의 값을 id="bigletter"에
+    </script>
+
+</html>
