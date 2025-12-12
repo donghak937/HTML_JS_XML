@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP + MySQL + SQL 올인원 치트시트</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+            line-height: 1.6;
+            color: #24292f;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 45px;
+            background-color: #ffffff;
+        }
+
+        h1,
+        h2,
+        h3 {
+            margin-top: 24px;
+            margin-bottom: 16px;
+            font-weight: 600;
+            line-height: 1.25;
+        }
+
+        h1 {
+            font-size: 2em;
+            border-bottom: 1px solid #eaecef;
+            padding-bottom: 0.3em;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            border-bottom: 1px solid #eaecef;
+            padding-bottom: 0.3em;
+        }
+
+        h3 {
+            font-size: 1.25em;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+
+        code {
+            padding: 0.2em 0.4em;
+            margin: 0;
+            font-size: 85%;
+            background-color: #afb8c133;
+            border-radius: 6px;
+            font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+        }
+
+        pre {
+            padding: 16px;
+            overflow: auto;
+            font-size: 85%;
+            line-height: 1.45;
+            background-color: #f6f8fa;
+            border-radius: 6px;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        ul,
+        ol {
+            padding-left: 2em;
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+
+        li {
+            margin-top: 0.25em;
+        }
+
+        a {
+            color: #0969da;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        table {
+            border-spacing: 0;
+            border-collapse: collapse;
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+
+        table th,
+        table td {
+            padding: 6px 13px;
+            border: 1px solid #d0d7de;
+        }
+
+        table tr {
+            background-color: #ffffff;
+            border-top: 1px solid #d8dee4;
+        }
+
+        table tr:nth-child(2n) {
+            background-color: #f6f8fa;
+        }
+
+        hr {
+            height: 0.25em;
+            padding: 0;
+            margin: 24px 0;
+            background-color: #e1e4e8;
+            border: 0;
+        }
+
+        .file-link {
+            display: inline-block;
+            padding: 2px 5px;
+            background-color: #eef;
+            border: 1px solid #ccf;
+            border-radius: 3px;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>PHP + MySQL + SQL 올인원 치트시트</h1>
+
+    <h2>0. 환경 셋업</h2>
+    <ol>
+        <li>XAMPP 설치</li>
+        <li><strong>Apache</strong>, <strong>MySQL</strong> Start 버튼으로 실행</li>
+        <li>프로젝트 폴더 만들기
+            <ul>
+                <li><code>C:\xampp\htdocs\php_cheatsheet\</code></li>
+            </ul>
+        </li>
+        <li>이 폴더 안에:
+            <ul>
+                <li><a href="hello.php" class="file-link">hello.php</a></li>
+                <li><a href="hello_css.php" class="file-link">hello_css.php</a></li>
+                <li><a href="form_get.html" class="file-link">form_get.html</a></li>
+                <li><a href="welcome_get.php" class="file-link">welcome_get.php</a></li>
+                <li><a href="form_post.html" class="file-link">form_post.html</a></li>
+                <li><a href="welcome_post.php" class="file-link">welcome_post.php</a></li>
+                <li><a href="form_db.html" class="file-link">form_db.html</a></li>
+                <li><a href="welcome_db.php" class="file-link">welcome_db.php</a></li>
+                <li><a href="list_db.php" class="file-link">list_db.php</a></li>
+                <li><code>README.md</code> (지금 이 파일)</li>
+            </ul>
+        </li>
+    </ol>
+
+    <p>브라우저에서 접속 예시:</p>
+    <ul>
+        <li><code>http://localhost/php_cheatsheet/hello.php</code></li>
+        <li><code>http://localhost/php_cheatsheet/form_get.html</code></li>
+        <li>...</li>
+    </ul>
+
+    <hr>
+
+    <h2>1. PHP 기본 문법</h2>
+
+    <h3>1-1. PHP 태그</h3>
+    <pre><code>&lt;?php
+    // PHP 코드는 이 안에
+    echo "Hello World!";
+?&gt;</code></pre>
+
+    <p>HTML 안에서 섞어서 사용:</p>
+    <pre><code>&lt;h1&gt;Title&lt;/h1&gt;
+&lt;?php echo "Content"; ?&gt;</code></pre>
+
+    <h3>1-2. <code>echo</code> 로 출력</h3>
+    <pre><code>echo "문자열";
+echo 123;
+echo "&lt;h2&gt;Hello&lt;/h2&gt;";</code></pre>
+
+    <h3>1-3. 대소문자 규칙</h3>
+    <ul>
+        <li><strong>키워드/함수</strong>는 대소문자 구분 안 함
+            <ul>
+                <li><code>echo</code>, <code>ECHO</code>, <code>EcHo</code> 모두 가능</li>
+            </ul>
+        </li>
+        <li><strong>변수 이름</strong>은 대소문자 구분 <strong>함</strong>
+            <ul>
+                <li><code>$age</code> 와 <code>$AGE</code> 는 다른 변수</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>1-4. 변수</h3>
+    <p>규칙:</p>
+    <ul>
+        <li><code>$</code> 로 시작 (<code>$name</code>, <code>$x</code>)</li>
+        <li>첫 글자는 영문자 또는 <code>_</code></li>
+        <li>숫자로 시작 불가</li>
+        <li>영문자 + 숫자 + <code>_</code> 만 가능</li>
+        <li>변수 이름은 대소문자 구분</li>
+    </ul>
+
+    <p>예:</p>
+    <pre><code>$txt = "Hello world!";
+$x   = 5;
+$y   = 10.5;
+
+echo $txt;  // Hello world!
+echo "&lt;br&gt;";
+echo $x;    // 5
+echo "&lt;br&gt;";
+echo $y;    // 10.5</code></pre>
+
+    <p>문자열 연결:</p>
+    <pre><code>$txt = "W3Schools.com";
+echo "I love $txt!";
+echo "I love " . $txt . "!";</code></pre>
+
+    <h3>1-5. 주석</h3>
+    <pre><code>// 한 줄 주석
+# 이것도 한 줄 주석
+
+/*
+여러 줄
+주석
+*/</code></pre>
+
+    <p>코드 일부 비활성화:</p>
+    <pre><code>$x = 5 /* + 15 */ + 5;  // 결과 10</code></pre>
+
+    <hr>
+
+    <h2>2. HTML 폼 + PHP (GET / POST)</h2>
+
+    <h3>2-1. GET 방식</h3>
+    <ul>
+        <li>URL 에 값이 보임</li>
+        <li>예) <code>...?name=Eugene&amp;email=eugene@handong.edu</code></li>
+    </ul>
+
+    <p>1. <code>form_get.html</code>:</p>
+    <pre><code>&lt;form action="welcome_get.php" method="get"&gt;
+  Name: &lt;input type="text" name="name"&gt;&lt;br&gt;
+  E-mail: &lt;input type="text" name="email"&gt;&lt;br&gt;
+  &lt;input type="submit"&gt;
+&lt;/form&gt;</code></pre>
+
+    <p>2. <code>welcome_get.php</code>:</p>
+    <pre><code>$name  = $_GET["name"];
+$email = $_GET["email"];</code></pre>
+
+    <h3>2-2. POST 방식</h3>
+    <ul>
+        <li>URL 에 값이 <strong>안 보임</strong></li>
+        <li>로그인/회원가입 등 민감한 데이터에 사용</li>
+    </ul>
+
+    <p>1. <code>form_post.html</code>:</p>
+    <pre><code>&lt;form action="welcome.php" method="post"&gt;
+  ...
+&lt;/form&gt;</code></pre>
+
+    <p>2. <code>welcome_post.php</code>:</p>
+    <pre><code>$name  = $_POST["name"];
+$email = $_POST["email"];</code></pre>
+
+    <hr>
+
+    <h2>3. PHP + MySQL 연동</h2>
+
+    <h3>3-1. DB와 테이블 만들기 (phpMyAdmin)</h3>
+    <ol>
+        <li>브라우저에서 <code>http://localhost/phpmyadmin</code> 접속</li>
+        <li>SQL 탭에서 실행:</li>
+    </ol>
+    <pre><code>CREATE DATABASE IF NOT EXISTS testdb
+  CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+
+USE testdb;
+
+CREATE TABLE IF NOT EXISTS exercise_sql (
+    name  VARCHAR(20) NOT NULL,
+    email VARCHAR(30) NOT NULL
+);</code></pre>
+
+    <h3>3-2. INSERT 흐름</h3>
+    <ol>
+        <li>HTML 폼: <code>form_db.html</code></li>
+        <li>폼 제출 → <code>welcome_db.php</code> 로 <code>POST</code></li>
+        <li>PHP 가 MySQL에 접속해서 INSERT 실행</li>
+        <li>성공/실패 메시지 출력</li>
+    </ol>
+
+    <p>핵심 코드 (welcome_db.php):</p>
+    <pre><code>$conn = new mysqli("localhost", "root", "", "testdb");
+
+if ($conn-&gt;connect_error) {
+    die("Connection failed: " . $conn-&gt;connect_error);
+}
+
+$conn-&gt;set_charset("utf8mb4");
+
+$name  = $_POST["name"];
+$email = $_POST["email"];
+
+$sql = "INSERT INTO exercise_sql (name, email)
+        VALUES ('" . $conn-&gt;real_escape_string($name) . "',
+                '" . $conn-&gt;real_escape_string($email) . "')";
+
+if ($conn-&gt;query($sql) === TRUE) {
+    echo "A record for name and email has been inserted.";
+} else {
+    echo "Could not insert record: " . $conn-&gt;error;
+}
+
+$conn-&gt;close();</code></pre>
+
+    <h3>3-3. SELECT 흐름</h3>
+    <ol>
+        <li>브라우저에서 <code>list_db.php</code> 요청</li>
+        <li><code>SELECT name, email FROM exercise_sql</code></li>
+        <li>결과를 <code>while</code> 루프로 돌면서 출력</li>
+    </ol>
+
+    <p>중요 부분:</p>
+    <pre><code>$sql    = "SELECT name, email FROM exercise_sql";
+$result = $conn-&gt;query($sql);
+
+if ($result && $result-&gt;num_rows &gt; 0) {
+    while ($row = $result-&gt;fetch_assoc()) {
+        echo $row["name"] . " - " . $row["email"] . "&lt;br&gt;";
+    }
+} else {
+    echo "0 results";
+}</code></pre>
+
+    <hr>
+
+    <h2>4. SQL 치트시트</h2>
+
+    <h3>4-1. 기본 SELECT</h3>
+    <pre><code>SELECT column1, column2
+FROM table_name;</code></pre>
+
+    <p>모든 컬럼:</p>
+    <pre><code>SELECT * FROM Customers;</code></pre>
+
+    <p>조건:</p>
+    <pre><code>SELECT * FROM Customers
+WHERE Country = 'Mexico';</code></pre>
+
+    <h3>4-2. 비교 &amp; 논리 연산</h3>
+    <ul>
+        <li>비교: <code>=</code>, <code>&lt;&gt;</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>,
+            <code>&lt;=</code></li>
+        <li>논리: <code>AND</code>, <code>OR</code>, <code>NOT</code></li>
+    </ul>
+
+    <pre><code>WHERE Country='Germany' AND City='Berlin';</code></pre>
+
+    <h3>4-3. 정렬 ORDER BY</h3>
+    <pre><code>ORDER BY City ASC;
+ORDER BY City DESC;</code></pre>
+
+    <h3>4-4. NULL</h3>
+    <pre><code>WHERE Address IS NULL;
+WHERE Address IS NOT NULL;</code></pre>
+
+    <h3>4-5. LIKE / 와일드카드</h3>
+    <ul>
+        <li><code>%</code> : 0글자 이상</li>
+        <li><code>_</code> : 정확히 1글자</li>
+    </ul>
+
+    <pre><code>WHERE CustomerName LIKE 'A%';   -- A로 시작
+WHERE CustomerName LIKE '%co';  -- co로 끝
+WHERE CustomerName LIKE '_r%';  -- 두 번째 글자가 r</code></pre>
+
+    <h3>4-6. INSERT / UPDATE / DELETE</h3>
+    <pre><code>INSERT INTO Customers (CustomerName, City, Country)
+VALUES ('Eugene', 'Seoul', 'Korea');
+
+UPDATE Customers
+SET ContactName='Alfred Schmidt', City='Frankfurt'
+WHERE CustomerID=1;
+
+DELETE FROM Customers
+WHERE CustomerName='Alfreds Futterkiste';</code></pre>
+
+    <h3>4-7. JOIN 요약</h3>
+    <pre><code>-- INNER JOIN: 양쪽에 다 있는 것만
+SELECT O.OrderID, C.CustomerName
+FROM Orders O
+INNER JOIN Customers C
+  ON O.CustomerID = C.CustomerID;
+
+-- LEFT JOIN: 왼쪽은 모두, 오른쪽 없으면 NULL
+SELECT C.CustomerName, O.OrderID
+FROM Customers C
+LEFT JOIN Orders O
+  ON C.CustomerID = O.CustomerID;
+
+-- RIGHT JOIN: 오른쪽은 모두, 왼쪽 없으면 NULL
+SELECT O.OrderID, C.CustomerName
+FROM Orders O
+RIGHT JOIN Customers C
+  ON O.CustomerID = C.CustomerID;
+
+-- FULL OUTER JOIN (MySQL 흉내: LEFT + RIGHT UNION)
+SELECT C.CustomerName, O.OrderID
+FROM Customers C
+LEFT JOIN Orders O
+  ON C.CustomerID = O.CustomerID
+UNION
+SELECT C.CustomerName, O.OrderID
+FROM Customers C
+RIGHT JOIN Orders O
+  ON C.CustomerID = O.CustomerID;</code></pre>
+
+    <h3>4-8. SELF JOIN 예시</h3>
+    <pre><code>SELECT A.CustomerName AS CustomerName1,
+       B.CustomerName AS CustomerName2,
+       A.City
+FROM Customers A, Customers B
+WHERE A.CustomerID &lt;&gt; B.CustomerID
+  AND A.City = B.City;</code></pre>
+
+    <hr>
+
+    <h2>5. 실행 체크 리스트</h2>
+    <ol>
+        <li>XAMPP에서 Apache, MySQL 둘 다 <strong>Start</strong></li>
+        <li>phpMyAdmin에서 <code>testdb</code> / <code>exercise_sql</code> 생성</li>
+        <li><code>C:\xampp\htdocs\php_cheatsheet\</code>에 모든 파일 저장</li>
+        <li>브라우저에서:
+            <ul>
+                <li><a href="hello.php">http://localhost/php_cheatsheet/hello.php</a></li>
+                <li><a href="form_get.html">http://localhost/php_cheatsheet/form_get.html</a></li>
+                <li><a href="form_post.html">http://localhost/php_cheatsheet/form_post.html</a></li>
+                <li><a href="form_db.html">http://localhost/php_cheatsheet/form_db.html</a></li>
+                <li><a href="list_db.php">http://localhost/php_cheatsheet/list_db.php</a></li>
+            </ul>
+        </li>
+        <li>값 넣어보고 DB에 들어갔는지 phpMyAdmin에서 확인</li>
+    </ol>
+
+</body>
+
+</html>
